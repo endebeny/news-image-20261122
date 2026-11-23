@@ -10,43 +10,61 @@ newspaper front page: "THE WORLD TODAY". Built for make.fun's
 
 ## The image
 
-`news-2026-11-22.png` — 1024×1024 PNG. Twelve stories, all verified
-against news reports published on 22 November 2026:
+`news-2026-11-22.png` — 1024×1024 PNG, drawn by `draw_frontpage.py`
+(Pillow, fixed data, no network — running it twice writes byte-identical
+output). Thirty stories, all verified against news reports published on
+Sunday 22 November 2026, in the classic one-page front-page style:
 
-1. **COP31 collapses** — nearly 200 countries end the Antalya climate
-   summit with no deal, the first failure since Copenhagen 2009, after
-   the EU rejects a text omitting fossil fuels. (CNN, Le Monde, The Times)
-2. **Tankers hit by mines** — two supertankers strike naval mines east
-   of the Strait of Hormuz and catch fire, amid Iran's naval blockade
-   and US escorts. (Reuters, AFP, Al Jazeera)
-3. **Genocide verdict** — the World Court rules Myanmar committed
-   genocide against the Rohingya in 2017, the first time it has found
-   a state responsible for genocide. (KPFA, World Court)
-4. **Musk warns AI crunch** — Elon Musk warns the AI industry faces a
-   cash shortage of hundreds of billions of dollars next year as
-   data-centre building lags behind schedule. (BigGo Finance, 22 Nov)
-5. **Strike hits Kryvyi Rih** — a Russian missile strike kills a
-   7-year-old boy and a 20-year-old woman and wounds 60 in
-   Zelenskyy's hometown. (AP, CNN)
-6. **Factory fire in Banten** — a fire at a candy factory in Cikande,
-   Indonesia, kills at least three workers, with 36 still missing.
-   (AP, Reuters)
+**Lead stories**
 
-Also today: EU–Indonesia landmark trade deal; Delta outage delays
-1,600+ flights; Democrats win a record US House majority; drone
-attacks kill four near Khartoum; cost-of-living protests enter a
-third day in Europe; 'El Chapo Isidro' captured in Sinaloa.
+1. **COP31 collapses** — the EU, Britain, Panama and island states
+   refuse a pact that never names fossil fuels; the $120bn-a-year
+   adaptation target is cut. Longest COP ever, first failure since
+   Copenhagen 2009. (CNN, Le Monde, UN News)
+2. **186 drones rain on Ukraine** — Russia launches 186 drones overnight
+   (72 jet-powered); 161 are downed. A drone flattens a stairwell in
+   Dymer — 3 killed, 14 feared buried; an evening strike on a Vyshneve
+   store kills 3 more. (Ukraine Air Force, AP)
+3. **Iran claims strike on US bases** — the IRGC says its 'Ya Umm
+   al-Banin' operation hit two US Patriot radars at Al-Riffa and Awali
+   in Bahrain; Bahrain says it intercepted the attack, debris setting a
+   Sitra plant ablaze. (IRGC, Bahrain, CBS)
+
+**Also on the page** — Musk warns of an AI cash crunch; factory fire in
+Banten (3 dead, 36 missing); Hong Kong votes, 856 candidates for 723
+seats at a record 98.79% turnout; India declare 720/9 at Wellington,
+the highest Test total ever in New Zealand; Verstappen wins a Las
+Vegas thriller (35 lead changes); Wembanyama's 50 makes NBA history;
+two tankers hit mines off Hormuz; BepiColombo reaches Mercury after an
+eight-year cruise; Iran starts electricity rationing — plus 18 more
+briefs (Sparta II still burning, Bolsonaro in ICU, FBI's NCIC hack,
+Belgium's Monday air shutdown, Manipur toll 17, Nigeria boat 24 dead,
+Pope Leo XIV's lunch for 1,300, Nvidia's 14% slide, Delta's 1,600+
+delays, Democrats' 258 House seats, Khartoum drones, Europe's
+cost-of-living protests, the EU–Indonesia pact, Trump on Iran and the
+credit-card cap, Odesa's grid, a jet drone over Moldova, Taiwan's
+short-selling curb).
+
+A red **DATE CHECK** box lists big stories deliberately left out because
+they are not 22 November news: the Peru M6.9 quake (20 Nov), the
+400-drone raid (19–20 Nov), the Kryvyi Rih strike (20–21 Nov), the
+'El Chapo Isidro' arrest (Fri 20 Nov) and the Myanmar genocide verdict
+(Thu 19 Nov). Every story carries a certainty tag — CONFIRMED, REPORTED
+or CLAIM — and its source.
 
 ## Run it
 
 ```sh
+python3 draw_frontpage.py
+# redraws news-2026-11-22.png (byte-identical on every run)
 python3 main.py
 # writes /output/entry.png (byte-identical on every run)
 ```
 
-`main.py` only copies the image with the standard library — no network,
-no randomness, no timestamps. It also validates the PNG header
-(dimensions within the 1024×1024 cap).
+`draw_frontpage.py` draws the front page from the verified story data
+in the file itself; `main.py` only copies the image with the standard
+library — no network, no randomness, no timestamps. It also validates
+the PNG header (dimensions within the 1024×1024 cap).
 
 ---
 
